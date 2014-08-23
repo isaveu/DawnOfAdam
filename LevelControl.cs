@@ -15,15 +15,15 @@ public class LevelControl : MonoBehaviour
     {
 
     }
-    public void TitleStart_Click(dfControl control, dfMouseEventArgs mouseEvent)
+    public void TitleStartClick(dfControl control, dfMouseEventArgs mouseEvent)
     {
         Application.LoadLevel("Zone_1");
     }
-    public void ExitGame_Click(dfControl control, dfMouseEventArgs mouseEvent)
+    public void ExitGameClick(dfControl control, dfMouseEventArgs mouseEvent)
     {
         Application.LoadLevel("Title");
     }
-    public void TitleStart_KeyPress(dfControl control, dfKeyEventArgs keyEvent)
+    public void TitleStartKeyPress(dfControl control, dfKeyEventArgs keyEvent)
     {
         Debug.Log("Keypressed");
         if (keyEvent.KeyCode == KeyCode.E)

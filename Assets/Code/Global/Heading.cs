@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Heading {
     public const int NoChange = -1;
-    public const int North = 270;
-    public const int NorthEast = 315;
-    public const int East = 360;
-    public const int SouthEast = 45;
-    public const int South = 90;
-    public const int SouthWest = 135;
-    public const int West = 180;
-    public const int NorthWest = 225;
+    public const int North = 0;
+    public const int NorthEast = 45;
+    public const int East = 90;
+    public const int SouthEast = 135;
+    public const int South = 180;
+    public const int SouthWest = 225;
+    public const int West = 270;
+    public const int NorthWest = 315;
     public static string ToString(int dir)
     {
         switch (dir)
@@ -28,6 +28,7 @@ public class Heading {
             default: throw new System.Exception("Invalid Heading");
         };
     }
+
     public static int GetDirection(Vector2 v)
     {
         if (v == Vector2.zero) return NoChange;

@@ -9,7 +9,6 @@ public class PlayerManager : MonoBehaviour
     private Dictionary<int, IItem> _inventory = new Dictionary<int, IItem>();
     private int _currentHeading;
     private float _z;
-
     // Use this for initialization
     void Start()
     {
@@ -25,8 +24,8 @@ public class PlayerManager : MonoBehaviour
     {
         var x = Input.GetAxis("Horizontal");
         var y = Input.GetAxis("Vertical");
-        if (x != 0) transform.Translate(new Vector3(x * Movement.Speed, 0, _z));
-        if (y != 0) transform.Translate(new Vector3(0, y * Movement.Speed, _z));
+        if (x != 0) transform.Translate(new Vector3(x * Movement.BaseSpeed, 0, _z));
+        if (y != 0) transform.Translate(new Vector3(0, y * Movement.BaseSpeed, _z));
         var dir = Heading.GetDirection(new Vector2(x, y));
         _currentHeading = dir == Heading.NoChange ? _currentHeading : dir;
         if (Input.GetButtonDown("Fire1"))
@@ -38,5 +37,12 @@ public class PlayerManager : MonoBehaviour
             item.Value.Update();
         }
     }
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy")
+        {
+            Debug.Log("hit player");
+        }
+    }
+
 }
